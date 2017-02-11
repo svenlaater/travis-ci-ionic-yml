@@ -12,9 +12,7 @@ before_install:
 
 install:
   # install minimum set of dependencies to run tests and linters
-  - npm install -g npm
-  - npm install -g gulp
-  - npm install -g bower
+  - npm install -g npm gulp bower
 
 before_script:
   # update npm and bower dependencies
@@ -23,7 +21,7 @@ before_script:
 
   # run linters and tests
   # if fails then build process stops
-  - gulp test
+  # - gulp test
 
 script:
   # install android SDK
@@ -41,19 +39,18 @@ script:
   -  export PATH=${PATH}:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools:$ANDROID_HOME/build-tools/23.0.2
 
   # install build dependecies
-  - npm install -g cordova
-  - npm install -g ionic
+  - npm install -g cordova ionic
 
   # - install plugins etc.
-  - ionic state restore
+  - cordova prepare
 
   # build Android and iOS packages
-  - ionic build android --debug
-  - ionic build ios --device --debug
+  - cordova build android --release
+  - cordova build ioss --device --release
 
 after_success:
   # generate documentation
-  - gulp doc
+  # - gulp doc
 
 deploy:
   # deploy build to s3, testflight etc.

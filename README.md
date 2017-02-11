@@ -4,17 +4,8 @@ An example configuration of Ionic/cordova + NPM + AngularJS + Bower + gulp conti
 
 ## Headless signing of release.apk
 
-1) Create `release-signing.properties`.
+1) Create build.json as explaind in  [cordova docs](https://cordova.apache.org/docs/en/latest/guide/platforms/android/#using-buildjson)
 
-```
-storeFile=MyApp.keystore
-keyAlias=MyApp
-storePassword=<pwd>
-keyPassword=<pwd>
-```
+2) `$ cordova build android --release`
 
-3) `$ ionic build android --release`
-
-## OSX
-
-Follow the [Travis CI for iOS](https://www.objc.io/issues/6-build-tools/travis-ci/) guide
+Same for iOS

@@ -46,7 +46,7 @@ script:
 
   # build Android and iOS packages
   - cordova build android --release
-  - cordova build ioss --device --release
+  - cordova build ios --device --release
 
 after_success:
   # generate documentation
